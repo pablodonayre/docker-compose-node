@@ -1,0 +1,58 @@
+doctype html
+head
+	meta(http-equiv='Content-Type' content='text/html; charset=utf-8')
+	link(href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css')
+	title=title
+	style(type='text/css').
+
+		body {
+			font-family: 'Courier';
+			color:#00ff00;
+			font-size:20px;
+			background-color: rgba(0, 0, 0,1.0);
+		}
+
+		a {
+			text-decoration:none;
+			font-family: 'Courier';
+			font-size:20px;
+			color:#00ff00;
+		}
+
+		a:hover {
+			color:#0B6CAE;
+		}
+
+		.nsc {
+			bottom:0;
+			right:10px;
+		}
+
+		.left {
+			padding:0 10px 0 10px;
+			width:98%;
+			/*height:500px;*/
+			/*top:50%;
+			left:20%;*/
+		}
+
+		h1 {
+			font-size:20px;
+		}
+
+		h1 p {
+			background:#222;
+			color:#fff;
+			padding:10px;
+		}
+	.left
+		h1(align='center')
+			p INDEX PAGE
+		p=message
+		br
+		p
+			| If you see this page, the NodeJS web server is successfully installed and
+			| working.
+		br
+	.nsc
+		a(href='https://github.com/pablodonayre/') Go to Github Repository
