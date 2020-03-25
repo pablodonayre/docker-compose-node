@@ -4,7 +4,7 @@ FROM node:10.18.0
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 COPY api/package*.json ./  
-USER node
+USER node  
 RUN npm install
 COPY --chown=node:node . .
 

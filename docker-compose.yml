@@ -4,13 +4,31 @@ services:
   node:
     #image: "node:10.18.0"
     build: .
+    user: "node"
     restart: "unless-stopped"
     working_dir: /home/node/app
     env_file:
       - ".env"
     volumes:
       - "./api:/home/node/app"
+      - "node_modules:/home/node/app/node_modules"
     ports:
       - "80:3000"
     command: "/home/node/app/node_modules/.bin/nodemon index.js"
 
+volumes:
+    node_modules:
+
+
+  # Proceso para agregar una libreria:
+  # 1. Instalar la nueva libreria:
+  #      Ejecutar un "sudo npm install <libreria>" en el servidor host (fuera del contenedor #      dentro de la carpeta api). 
+  #      --- El objetivo de esto es solo agregar la libreria en el package.json ---
+  # 2. sudo docker-compose down
+  # 3. Borrar en el host(fuera del contenedor): package-lock.json, node-modules
+  # 4. Borrar el volume "node_modules"
+  #       sudo docker volume ls
+  #       sudo docker volume rm <nombre del volumen> or sudo docker volume prune to delete all
+  # 5. sudo docker-compose up -d --build (en este punto descargara nuevamente las librerias)
+
+  # O tambien, despues del paso "1", se puede ejecutar el archivo regenLibraries.sh
